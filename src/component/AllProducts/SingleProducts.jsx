@@ -33,7 +33,7 @@ const SingleProducts = ({ propShoe, setShoes, allShoes }) => {
     return (
         <div className="card w-full bg-base-100 shadow-xl ">
             <figure className="px-10 pt-10">
-                <img src={propShoe?.image_url} alt="Shoes" className="rounded-xl h-48 w-full object-cover" />
+                <img src={propShoe?.imageUrl} alt="Shoes" className="rounded-xl h-48 w-full object-cover" />
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{propShoe?.title}</h2>

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../Firebase/Firebase.config';
+import axios from 'axios';
 
 const Login = () => {
     const [signInWithGoogle, googleuser, googleLoading] = useSignInWithGoogle(auth);
@@ -31,6 +32,20 @@ const Login = () => {
     useEffect(() => {
         if (user || googleuser) {
             navigate(from, { replace: true });
+        }
+
+        if (googleuser) {
+            try {
+                const userData = { 
+                    displayName: googleuser.displayName,
+                    photoURL: googleuser.photoURL,
+                    email: googleuser.email
+                };
+                const response = axios.post(`${import.meta.env.VITE_API_URL}/auth/register`, userData);
+                console.log('User created successfully:', response.acknowledged);
+            } catch (error) {
+                console.error('Error creating user:', error.response ? error.response.data : error.message);
+            }
         }
     }, [user, loading, navigate, from, googleuser, googleLoading]);
 

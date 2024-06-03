@@ -10,7 +10,7 @@ const AddProducts = () => {
         const brand = form.brand.value;
         const price = form.price.value;
         const description = form.description.value;
-        const image_url = form.image_url.value;
+        const imageUrl = form.imageUrl.value;
 
         const requestBody = {
             id: id,
@@ -18,7 +18,7 @@ const AddProducts = () => {
             brand: brand,
             price: price,
             description: description,
-            image_url: image_url,
+            imageUrl: imageUrl,
         }
 
         Swal.fire({
@@ -87,7 +87,7 @@ const AddProducts = () => {
                     <div className="label">
                         <span className="label-text font-bold">Image Url</span>
                     </div>
-                    <input type="text" name='image_url' placeholder="Image Url" className="input input-bordered w-full" />
+                    <input type="text" name='imageUrl' placeholder="Image Url" className="input input-bordered w-full" />
                 </label>
 
                 <div>

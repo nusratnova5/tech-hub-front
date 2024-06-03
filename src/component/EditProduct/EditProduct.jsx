@@ -9,7 +9,7 @@ const EditProduct = () => {
     const [brand, setBrand] = useState(shoe.brand);
     const [price, setPrice] = useState(shoe.price);
     const [description, setDescription] = useState(shoe.description);
-    const [image_url, setImage] = useState(shoe.image_url);
+    const [imageUrl, setImage] = useState(shoe.imageUrl);
 
     const editProduct = (e) => {
         e.preventDefault();
@@ -21,7 +21,7 @@ const EditProduct = () => {
             brand: brand,
             price: price,
             description: description,
-            image_url: image_url,
+            imageUrl: imageUrl,
         }
 
         Swal.fire({
@@ -89,7 +89,7 @@ const EditProduct = () => {
                     <div className="label">
                         <span className="label-text font-bold">Image Url</span>
                     </div>
-                    <input type="text" name='image_url' onChange={(e) => setImage(e.target.value)}  defaultValue={image_url} placeholder="Image Url" className="input input-bordered w-full" />
+                    <input type="text" name='imageUrl' onChange={(e) => setImage(e.target.value)}  defaultValue={imageUrl} placeholder="Image Url" className="input input-bordered w-full" />
                 </label>
 
                 <div>

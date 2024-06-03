@@ -3,6 +3,7 @@ import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-fireb
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { auth } from '../../Firebase/Firebase.config';
+import axios from 'axios';
 
 const Register = () => {
     const [
@@ -35,8 +36,16 @@ const Register = () => {
                 icon: "error"
             });
         }
+        if (!createUserError && !updateProfileError) {
+            try {
+                const userData = { displayName, photoURL, email  };
+                const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/register`, userData);
+                console.log('User created successfully:', response.data);
+            } catch (error) {
+                console.error('Error creating user:', error.response ? error.response.data : error.message);
+            }
+        }
     }
-
     useEffect(() => {
         if (user) {
             console.log(user)
@@ -81,8 +90,8 @@ const Register = () => {
                             <button className="btn bg-red-900 hover:bg-red-600 text-white">Register</button>
                         </div>
                         <div className=' mb-3'>
-                        <p>Already have an account? <Link to={'/login'} className='text-red-900 font-bold'>Click here </Link>to login.</p>
-                    </div>
+                            <p>Already have an account? <Link to={'/login'} className='text-red-900 font-bold'>Click here </Link>to login.</p>
+                        </div>
                     </form>
                 </div>
             </div>
