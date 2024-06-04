@@ -14,15 +14,17 @@ const Products = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const token = localStorage.getItem('token');        
-                const config = {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                };
-                const url = `${import.meta.env.VITE_API_URL}/products${title ? `?title=${encodeURIComponent(title)}` : ''}`;
-                const response = await axios.get(url,config);
-                setProducts(response.data);
+                const token = localStorage.getItem('token');    
+                if (token) {
+                    const config = {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    };
+                    const url = `${import.meta.env.VITE_API_URL}/products${title ? `?title=${encodeURIComponent(title)}` : ''}`;
+                    const response = await axios.get(url,config);
+                    setProducts(response.data);
+                }
             } catch (error) {
                 console.error('Error fetching products:', error);
             }

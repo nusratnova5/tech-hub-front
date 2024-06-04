@@ -12,7 +12,7 @@ const SingleProduct = ({propProduct}) => {
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{propProduct?.title}</h2>
-                <p>{propProduct?.description.substring(0, 100)}</p>
+                <p>{propProduct?.description?.substring(0, 100)}</p>
                 <div className="card-actions">
                     <Link to={`/product-details/${propProduct._id}`} className="btn bg-lime-300">Details</Link>
                 </div>
