@@ -4,9 +4,6 @@ import { Link, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const SingleProducts = ({ propShoe, setShoes, allShoes }) => {
-    const { id } = useParams(); // Get the product ID from URL parameters
-    console.log(id)
-
     const handleDelete = () => {
         Swal.fire({
             title: "Are you sure?",
@@ -19,8 +16,8 @@ const SingleProducts = ({ propShoe, setShoes, allShoes }) => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const response = await axios.delete(`${import.meta.env.VITE_API_URL}/products/${id}`);
-                    console.log('Product created successfully:', response);
+                    const response = await axios.delete(`${import.meta.env.VITE_API_URL}/products/${propShoe._id}`);
+                    console.log('Product deleted successfully:', response);
                     if(response.acknowledged){
                           Swal.fire({
                             text: "Product deleted successfully.",

@@ -1,10 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SingleProduct from './SingleProduct';
 import { useLoaderData } from 'react-router-dom';
+import axios from 'axios';
 
 const Products = () => {
     const loaderShoes = useLoaderData();
     const [shoes, setShoes] = useState(loaderShoes);
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/products`);
+                setShoes(response.data);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        };
+
+        fetchProducts();
+    }, []);
 
     return (
         <div className='text-center my-10'>

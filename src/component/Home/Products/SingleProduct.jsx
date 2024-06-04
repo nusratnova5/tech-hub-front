@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-const SingleProduct = () => {
+const SingleProduct = ({propShoe}) => {
     const { id } = useParams(); // Get the product ID from URL parameters
 
     const handleDelete = () => {
