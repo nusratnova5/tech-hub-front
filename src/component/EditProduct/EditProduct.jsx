@@ -38,7 +38,13 @@ const EditProduct = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const response = await axios.put(`${import.meta.env.VITE_API_URL}/products/${id}`, requestBody);
+                    const token = localStorage.getItem('token');        
+                    const config = {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    };
+                    const response = await axios.put(`${import.meta.env.VITE_API_URL}/products/${id}`, requestBody, config);
                     console.log('Product created successfully:', response);
                     if(response.acknowledged){
                           Swal.fire({

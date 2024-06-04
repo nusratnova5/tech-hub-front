@@ -3,14 +3,28 @@ import { useLoaderData } from 'react-router-dom';
 import SingleProducts from './SingleProducts';
 
 const AllProducts = () => {
-    const loaderShoes = useLoaderData();
-    const [shoes, setShoes] = useState(loaderShoes);
+    const loaderProducts = useLoaderData();
+    const [products, setSProducts] = useState(loaderProducts);
     return (
         <div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-            {shoes?.map(shoe => (
-                <SingleProducts propShoe={shoe} allShoes={shoes} setShoes={setShoes} key={shoe.id} />
-            ))}
+            <div className="overflow-x-auto">
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Brand</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {products?.map(product => (
+                            <SingleProducts propProduct={product} allProducts={products} setProducts={setSProducts} key={product._id} />
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
     );

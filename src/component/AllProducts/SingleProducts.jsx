@@ -3,7 +3,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const SingleProducts = ({ propShoe, setShoes, allShoes }) => {
+const SingleProducts = ({ propProduct, setProducts, allProducts }) => {
     const handleDelete = () => {
         Swal.fire({
             title: "Are you sure?",
@@ -16,39 +16,52 @@ const SingleProducts = ({ propShoe, setShoes, allShoes }) => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const response = await axios.delete(`${import.meta.env.VITE_API_URL}/products/${propShoe._id}`);
+                    const token = localStorage.getItem('token');        
+                    const config = {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    };
+                    const response = await axios.delete(`${import.meta.env.VITE_API_URL}/products/${propProduct._id}`, config);
                     console.log('Product deleted successfully:', response);
-                    if(response.acknowledged){
-                          Swal.fire({
+                    if (response.data.acknowledged) {
+                        Swal.fire({
                             text: "Product deleted successfully.",
                             icon: "success"
-                        }); 
-                        const remainingShoes = allShoes.filter(singleShoe => singleShoe._id != propShoe._id);
-                        setShoes(remainingShoes); 
+                        });
+                        const remainingProduct = allProducts.filter(singleProduct => singleProduct._id != propProduct._id);
+                        setProducts(remainingProduct);
                     }
 
                 } catch (error) {
                     console.error('Error deleting product:', error.response ? error.response.data : error.message);
                 }
-                   
+
             }
         });
     }
     return (
-        <div className="card w-full bg-base-100 shadow-xl ">
-            <figure className="px-10 pt-10">
-                <img src={propShoe?.imageUrl} alt="Shoes" className="rounded-xl h-48 w-full object-cover" />
-            </figure>
-            <div className="card-body items-center text-center">
-                <h2 className="card-title">{propShoe?.title}</h2>
-                <p>{propShoe?.description}</p>
-                <div className="card-actions">
-                    <button onClick={handleDelete} className="btn btn-error bg-red-900 text-white">Delete</button>
-                    <Link to={`/dashboard/edit-product/${propShoe._id}`} className="btn bg-orange-500">Edit</Link>
-                    <Link to={`/dashboard/product-details/${propShoe._id}`} className="btn bg-lime-300">Details</Link>
+        <tr>
+            <td>
+                <div className="flex items-center gap-3">
+                    <div className="avatar">
+                        <div className="mask mask-squircle w-12 h-12">
+                            <img src={propProduct?.imageUrl} alt="Avatar Tailwind CSS Component" />
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </td>
+            <td>{propProduct?.title}</td>
+            <td>{propProduct?.brand}</td>
+            <th>{propProduct?.price}</th>
+            <th>{propProduct?.status == 1 ? 'Not sold' : 'Sold'}</th>
+            <td>
+                <button onClick={handleDelete} className="btn btn-error bg-red-900 text-white">Delete</button>
+                <Link to={`/dashboard/edit-product/${propProduct._id}`} className="btn bg-orange-500">Edit</Link>
+                <Link to={`/dashboard/product-details/${propProduct._id}`} className="btn bg-lime-300">Details</Link>
+            </td>
+        </tr>
+
     );
 };
 

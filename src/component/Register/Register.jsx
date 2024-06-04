@@ -57,8 +57,8 @@ const Register = () => {
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold text-red-900">Register now!</h1>
-                    <p className="py-6">Create an account to start your personalized shopping experience at our shoe shop. Register now to track your orders, save your favorite items, and enjoy a faster checkout process.</p>
+                    <h1 className="text-5xl font-bold text-purple-900">Register now!</h1>
+                    <p className="py-6">Join us and unlock exclusive benefits at our tech accessories shop. Register now to track your orders, save your favorite products, and enjoy a faster, more secure checkout process. Start your tech journey with us today!</p>
                 </div>
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleSignUp} className="card-body">
@@ -87,10 +87,10 @@ const Register = () => {
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn bg-red-900 hover:bg-red-600 text-white">Register</button>
+                            <button className="btn bg-purple-900 hover:bg-slate-600 text-white">Register</button>
                         </div>
                         <div className=' mb-3'>
-                            <p>Already have an account? <Link to={'/login'} className='text-red-900 font-bold'>Click here </Link>to login.</p>
+                            <p>Already have an account? <Link to={'/login'} className='text-purple-900 font-bold'>Click here </Link>to login.</p>
                         </div>
                     </form>
                 </div>

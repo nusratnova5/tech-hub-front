@@ -24,7 +24,7 @@ const AddProducts = () => {
             imageUrl: imageUrl,
             sellerEmail: user?.email,
             status: 1,
-            buyerId: null,
+            buyerEmail: null,
         }
 
         Swal.fire({
@@ -38,8 +38,21 @@ const AddProducts = () => {
         }).then(async (result)  =>  {
             if (result.isConfirmed) {
                 try {
-                    const response = await axios.post(`${import.meta.env.VITE_API_URL}/products`, requestBody);
+                    const token = localStorage.getItem('token');        
+                    const config = {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    };
+
+                    const response = await axios.post(`${import.meta.env.VITE_API_URL}/products`, requestBody, config);
                     console.log('Product created successfully:', response);
+                    if (response.data.acknowledged) {
+                        Swal.fire({
+                            text: "Product added successfully.",
+                            icon: "success"
+                        });
+                    }
                 } catch (error) {
                     console.error('Error creating user:', error.response ? error.response.data : error.message);
                 }
@@ -51,12 +64,6 @@ const AddProducts = () => {
     return (
         <div className=''>
             <form onSubmit={addProduct}>
-                <label className="form-control w-full">
-                    <div className="label">
-                        <span className="label-text font-bold">ID</span>
-                    </div>
-                    <input type="text" name='id' placeholder="ID" className="input input-bordered w-full" />
-                </label>
                 <label className="form-control w-full">
                     <div className="label">
                         <span className="label-text font-bold">Title</span>
@@ -89,7 +96,7 @@ const AddProducts = () => {
                 </label>
 
                 <div>
-                    <button type='submit' className="btn bg-lime-600 mt-5 text-white text-xl">Add</button>
+                    <button type='submit' className="btn bg-purple-900 mt-5 text-white text-xl">Add</button>
                 </div>
             </form>
         </div>

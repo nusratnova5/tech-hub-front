@@ -5,11 +5,14 @@ import Dashboard from "../component/Dashboard/Dashboard";
 import AllProducts from "../component/AllProducts/AllProducts";
 import AddProducts from "../component/AddProudcts/AddProducts";
 import EditProduct from "../component/EditProduct/EditProduct";
-import ProductDetails from "../component/ProductDetails/ProductDetails";
 import Login from "../component/Login/Login";
 import Register from "../component/Register/Register";
 import MainLayout from "../Layouts/MainLayout";
 import DashboardLayout from "../Layouts/DashboardLayout";
+import Products from "../component/Home/Products/Products";
+import ProductDetails from "../component/Home/Products/ProductDetails";
+import axios from "axios";
+import Profile from "../component/Profile/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -26,8 +29,47 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home/>
-            }
+                element: <Home />
+            },
+            {
+                path: "product-details/:id",
+                element: <ProductDetails />,
+                loader: (async ({params}) => {
+                    try {
+                        const token = localStorage.getItem('token');
+                        const headers = {
+                            Authorization: `Bearer ${token}`
+                        };
+                        const response = await axios.get(`${import.meta.env.VITE_API_URL}/products/${params.id}`, { headers });
+                        return response.data;
+                    } catch (error) {
+                        console.error('Error fetching products:', error);
+                        throw error; // Rethrow the error to handle it outside
+                    }
+                })
+            },
+            {
+                path: "/products",
+                element: <Products />,
+            },
+            {
+                path: "/profile",
+                element: <Profile />,
+                loader: (async () => {
+                    try {
+                        const token = localStorage.getItem('token');
+                        const userId = localStorage.getItem('userId');
+                        const headers = {
+                            Authorization: `Bearer ${token}`
+                        };
+                        const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/${userId}`, { headers });
+                        return response.data;
+                    } catch (error) {
+                        console.error('Error fetching products:', error);
+                        throw error; // Rethrow the error to handle it outside
+                    }
+                })
+            },
         ]
     },
     {
@@ -36,7 +78,20 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "",
-                element: <Dashboard />
+                element: <Dashboard />,
+                loader: (async () => {
+                    try {
+                        const token = localStorage.getItem('token');
+                        const headers = {
+                            Authorization: `Bearer ${token}`
+                        };
+                        const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/dashboard-data`, { headers });
+                        return response.data;
+                    } catch (error) {
+                        console.error('Error fetching products:', error);
+                        throw error; // Rethrow the error to handle it outside
+                    }
+                })
             },
             {
                 path: "add-products",
@@ -45,18 +100,43 @@ export const router = createBrowserRouter([
             {
                 path: "all-products",
                 element: <AllProducts />,
-                loader: (() => fetch(`${import.meta.env.VITE_API_URL}/products`))
+                loader: (async () => {
+                    try {
+                        const token = localStorage.getItem('token');
+                        const headers = {
+                            Authorization: `Bearer ${token}`
+                        };
+                        const response = await axios.get(`${import.meta.env.VITE_API_URL}/products`, { headers });
+                        return response.data;
+                    } catch (error) {
+                        console.error('Error fetching products:', error);
+                        throw error; // Rethrow the error to handle it outside
+                    }
+                })
             },
             {
                 path: "edit-product/:id",
                 element: <EditProduct />,
-                loader: (({params}) => fetch(`${import.meta.env.VITE_API_URL}/products/${params._id}`))
-            },
-            {
-                path: "product-details/:id",
-                element: <ProductDetails />,
-                loader: (({params}) => fetch(`${import.meta.env.VITE_API_URL}/products/${params._id}`))
-            },
+                loader: (async ({ params }) => {
+                    try {
+                        // Retrieve token from localStorage
+                        const token = localStorage.getItem('token');
+
+                        // Create headers object with Authorization header containing the token
+                        const headers = {
+                            Authorization: `Bearer ${token}`
+                        };
+
+                        // Make GET request to fetch products with headers containing the token
+                        const response = await axios.get(`${import.meta.env.VITE_API_URL}/products/${params.id}`, { headers });
+
+                        return response.data; // Return the fetched products
+                    } catch (error) {
+                        console.error('Error fetching products:', error);
+                        throw error; // Rethrow the error to handle it outside
+                    }
+                })
+            }
         ]
     },
 ]);

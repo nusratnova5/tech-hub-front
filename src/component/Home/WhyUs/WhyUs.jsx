@@ -6,12 +6,12 @@ import img4 from '../WhyUs/images/easy_return.png';
 
 const WhyUs = () => {
     return (
-        <div className="text-center p-8">
+        <div className="text-center p-8 my-20">
             <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                 Why to choose US?
             </h2>
 
-            <div className="flex flex-wrap items-center mt-20 text-left text-center">
+            <div className="flex flex-wrap items-center mt-10 text-left ">
                 <div className="w-full md:w-3/5 lg:w-1/2 px-4">
                     <img src= {img1} alt="gem" className="inline-block rounded shadow-lg border border-merino-400" />
                 </div>
@@ -24,7 +24,7 @@ const WhyUs = () => {
                 </div>
             </div>
 
-            <div className="flex flex-wrap items-center mt-20 text-left text-center">
+            <div className="flex flex-wrap items-center mt-20 text-left">
                 <div className="w-full md:w-3/5 lg:w-1/2 px-4">
                     <img src={img2} alt="project members" className="inline-block rounded shadow-lg border border-merino-400" />
                 </div>
@@ -38,7 +38,7 @@ const WhyUs = () => {
                 </div>
             </div>
 
-            <div className="flex flex-wrap items-center mt-20 text-left  text-center">
+            <div className="flex flex-wrap items-center mt-20 text-left ">
                 <div className="w-full md:w-3/5 lg:w-1/2 px-4">
                     <img src={img3} alt="editor" className="inline-block rounded shadow-lg border border-merino-400" />
                 </div>
