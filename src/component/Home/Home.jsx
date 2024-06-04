@@ -4,14 +4,15 @@ import Products from './Products/Products';
 import ContactUs from './ContactUs/ContactUs';
 import WhyUs from './WhyUs/WhyUs';
 import Category from './Category/Category';
+import Faq from './FAQ/Faq';
 
 const Home = () => {
     return (
         <div className='my-10'>
             <Banner/>
-            <Category/>
             <Products></Products>
             <WhyUs/>
+            <Faq/>
             <ContactUs/>
         </div>
     );

@@ -1,7 +1,11 @@
+import axios from 'axios';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import Swal from 'sweetalert2';
+import { auth } from '../../Firebase/Firebase.config';
 
 const AddProducts = () => {
+    const [user] = useAuthState(auth);
     const addProduct = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -13,12 +17,14 @@ const AddProducts = () => {
         const imageUrl = form.imageUrl.value;
 
         const requestBody = {
-            id: id,
             title: title,
             brand: brand,
             price: price,
             description: description,
             imageUrl: imageUrl,
+            sellerEmail: user?.email,
+            status: 1,
+            buyerId: null,
         }
 
         Swal.fire({
@@ -29,23 +35,15 @@ const AddProducts = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Add"
-        }).then((result) => {
+        }).then(async (result)  =>  {
             if (result.isConfirmed) {
-                fetch('http://localhost:3000/shoes', {
-                    method: 'POST',
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify(requestBody)
-                })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        Swal.fire({
-                            text: "Product added successfully.",
-                            icon: "success"
-                        });
-                        form.reset();
-                    })
+                try {
+                    const response = await axios.post(`${import.meta.env.VITE_API_URL}/products`, requestBody);
+                    console.log('Product created successfully:', response);
+                } catch (error) {
+                    console.error('Error creating user:', error.response ? error.response.data : error.message);
+                }
+                   
             }
         });
 

@@ -7,10 +7,10 @@ const SideBar = ({ isOpenSidebar, toggleSidebar }) => {
             <input checked={isOpenSidebar} type="checkbox" className="drawer-toggle" />
             <div className="drawer-side">
                 <label onClick={toggleSidebar} aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className="menu p-4 w-80 min-h-full bg-red-900 text-white">
+                <ul className="menu p-4 w-80 min-h-full bg-purple-900 text-white">
                     <li>
                         <div className="flex-1">
-                            <Link to={'/'} className="btn btn-ghost text-xl pl-0">Stride Style</Link>
+                            <Link to={'/'} className="btn btn-ghost text-xl pl-0">Tech Hub</Link>
                         </div>
                     </li>
                     <li><Link onClick={toggleSidebar} to={'/dashboard'}>Dashboard</Link></li>

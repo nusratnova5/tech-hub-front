@@ -45,12 +45,12 @@ export const router = createBrowserRouter([
             {
                 path: "all-products",
                 element: <AllProducts />,
-                loader: (() => fetch('http://localhost:3000/shoes'))
+                loader: (() => fetch(`${import.meta.env.VITE_API_URL}/products`))
             },
             {
                 path: "edit-product/:id",
                 element: <EditProduct />,
-                loader: (({params}) => fetch(`http://localhost:3000/shoes/${params.id}`))
+                loader: (({params}) => fetch(`${import.meta.env.VITE_API_URL}/products/${params._id}`))
             },
             {
                 path: "product-details/:id",

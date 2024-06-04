@@ -1,4 +1,8 @@
 import React from 'react';
+import img1 from '../WhyUs/images/premium_products.png';
+import img2 from '../WhyUs/images/expert_support.jpg';
+import img3 from '../WhyUs/images/Competitive-Pricing.webp';
+import img4 from '../WhyUs/images/easy_return.png';
 
 const WhyUs = () => {
     return (
@@ -9,65 +13,54 @@ const WhyUs = () => {
 
             <div className="flex flex-wrap items-center mt-20 text-left text-center">
                 <div className="w-full md:w-3/5 lg:w-1/2 px-4">
-                    <img src="https://picsum.photos/400/240" alt="gem" className="inline-block rounded shadow-lg border border-merino-400" />
+                    <img src= {img1} alt="gem" className="inline-block rounded shadow-lg border border-merino-400" />
                 </div>
                 <div className="w-full md:w-2/5 lg:w-1/2 px-4 text-center md:text-left lg:pl-12">
                     <h3 className="font-bold mt-8 text-xl md:mt-0 sm:text-2xl">
-                        Simple integration
-                    </h3>
+                    Premium Quality Products                    </h3>
                     <p className="sm:text-lg mt-6">
-                        Use the LocaleData gem to download translations directly into your Ruby on Rails
-                        projects using the provided command line interface. Just create a project and follow
-                        the step-by-step instructions.
+                    We offer a curated selection of the latest and greatest tech products from top brands. Each item is handpicked for its quality, performance, and value, ensuring you get the best technology available.
                     </p>
                 </div>
             </div>
 
             <div className="flex flex-wrap items-center mt-20 text-left text-center">
                 <div className="w-full md:w-3/5 lg:w-1/2 px-4">
-                    <img src="https://picsum.photos/400/240" alt="project members" className="inline-block rounded shadow-lg border border-merino-400" />
+                    <img src={img2} alt="project members" className="inline-block rounded shadow-lg border border-merino-400" />
                 </div>
                 <div className="w-full md:w-2/5 lg:w-1/2 px-4 md:order-first text-center md:text-left lg:pr-12">
                     <h3 className="font-bold mt-8 text-xl md:mt-0 sm:text-2xl">
-                        Easy collaboration
+                    Expert Support
                     </h3>
                     <p className="sm:text-lg mt-6">
-                        All LocaleData projects are private. Each project can have multiple collaborators
-                        with different roles and access permissions. You determine who can see and edit
-                        your translations. Just add admins, developers, translators and configure their
-                        access rights.
+                    Our knowledgeable support team is here to help you every step of the way. Whether you need advice on which product to choose or help with a purchase, we provide expert guidance and personalized support.
                     </p>
                 </div>
             </div>
 
             <div className="flex flex-wrap items-center mt-20 text-left  text-center">
                 <div className="w-full md:w-3/5 lg:w-1/2 px-4">
-                    <img src="https://picsum.photos/400/240" alt="editor" className="inline-block rounded shadow-lg border border-merino-400" />
+                    <img src={img3} alt="editor" className="inline-block rounded shadow-lg border border-merino-400" />
                 </div>
                 <div className="w-full md:w-2/5 lg:w-1/2 px-4 text-center md:text-left lg:pl-12">
                     <h3 className="font-bold mt-8 text-xl md:mt-0 sm:text-2xl">
-                        No more syntax errors
+                    Competitive Prices
                     </h3>
                     <p className="sm:text-lg mt-6">
-                        LocaleData provides you easy import/export functions for your YAML files.
-                        Use a simple editor with many predefined languages to manage your locales.
-                        LocaleData also supports multiple translation types, such as simple text, plural forms,
-                        numbers, booleans, symbols, arrays, ...
+                    Get the best deals on your favorite tech products. We regularly compare prices and offer competitive rates, so you can shop with confidence knowing you're getting the best value for your money.
                     </p>
                 </div>
             </div>
 
             <div className="flex flex-wrap items-center mt-20 text-left">
                 <div className="w-full md:w-3/5 lg:w-1/2 px-4">
-                    <img src="https://picsum.photos/400/240" alt="bulk editing" className="inline-block rounded shadow-lg border border-merino-400" />
+                    <img src={img4} alt="bulk editing" className="inline-block rounded shadow-lg border border-merino-400" />
                 </div>
                 <div className="w-full md:w-2/5 lg:w-1/2 px-4 md:order-first text-center md:text-left lg:pr-12">
                     <h3 className="font-bold mt-8 text-xl md:mt-0 sm:text-2xl">
-                        Bulk editing
-                    </h3>
+                    Easy Returns and Exchanges                    </h3>
                     <p className="sm:text-lg mt-6">
-                        Do you need to change the path of many translation keys at once? No problem, just
-                        use the bulk editing feature and enjoy the results.
+                    Shop with confidence knowing that if you're not completely satisfied with your purchase, we offer hassle-free returns and exchanges. Our customer-centric return policy is designed to make your shopping experience smooth and worry-free.
                     </p>
                 </div>
             </div>

@@ -1,9 +1,12 @@
+import axios from 'axios';
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const EditProduct = () => {
     const shoe = useLoaderData();
+    const { id } = useParams(); // Get the product ID from URL parameters
+
 
     const [title, setTitle] = useState(shoe.title);
     const [brand, setBrand] = useState(shoe.brand);
@@ -32,28 +35,26 @@ const EditProduct = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Edit"
-        }).then((result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/shoes/${shoe.id}`, {
-                    method: 'PATCH',
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify(requestBody)
-                })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        Swal.fire({
+                try {
+                    const response = await axios.put(`${import.meta.env.VITE_API_URL}/products/${id}`, requestBody);
+                    console.log('Product created successfully:', response);
+                    if(response.acknowledged){
+                          Swal.fire({
                             text: "Product edited successfully.",
                             icon: "success"
-                        });
+                        });  
+                    }
 
-                        setTitle('');
-                        setBrand('');
-                        setPrice('');
-                        setDescription('');
-                        setImage('');
-                    })
+                    setTitle('');
+                    setBrand('');
+                    setPrice('');
+                    setDescription('');
+                    setImage('');
+                } catch (error) {
+                    console.error('Error updating product:', error.response ? error.response.data : error.message);
+                }
             }
         });
 
@@ -93,7 +94,7 @@ const EditProduct = () => {
                 </label>
 
                 <div>
-                <button type='submit' className="btn bg-lime-600 mt-5 text-white text-xl">Update</button>
+                <button type='submit' className="btn bg-purple-900 mt-5 text-white text-xl">Update</button>
                 </div>
             </form>
         </div>
