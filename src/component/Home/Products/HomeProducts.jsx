@@ -2,26 +2,30 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useSearchParams } from 'react-router-dom';
 import SingleProduct from './SingleProduct';
+import { auth } from '../../../Firebase/Firebase.config';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const HomeProducts = () => {
     const loaderShoes = useLoaderData();
     const [products, setProducts] = useState(loaderShoes);
+    const [user] = useAuthState(auth);
+    console.log(user?.email)
 
     const [searchParams] = useSearchParams(); // Get the search parameters
 
     const title = searchParams.get('title');
+    const token = localStorage.getItem('token');    
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const token = localStorage.getItem('token');    
                 if (token) {
                     const config = {
                         headers: {
                             Authorization: `Bearer ${token}`
                         }
                     };
-                    const url = `${import.meta.env.VITE_API_URL}/products${title ? `?title=${encodeURIComponent(title)}` : ''}`;
+                    const url = `${import.meta.env.VITE_API_URL}/products?notEmail=${user?.email}${title ? `&title=${encodeURIComponent(title)}` : ''}`;
                     const response = await axios.get(url,config);
                     setProducts(response.data);
                 }
@@ -31,7 +35,7 @@ const HomeProducts = () => {
         };
 
         fetchProducts();
-    }, []);
+    }, [user,token]);
     return (
         <div className='text-center mt-20'>
         <h3 className='text-5xl font-bold'>Our products</h3>

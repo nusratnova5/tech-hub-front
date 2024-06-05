@@ -10,11 +10,11 @@ const Products = () => {
     const [searchParams] = useSearchParams(); // Get the search parameters
 
     const title = searchParams.get('title');
+    const token = localStorage.getItem('token');    
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const token = localStorage.getItem('token');    
                 if (token) {
                     const config = {
                         headers: {
@@ -31,7 +31,7 @@ const Products = () => {
         };
 
         fetchProducts();
-    }, []);
+    }, [token]);
 
     return (
         <div className='text-center my-10'>

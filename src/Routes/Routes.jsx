@@ -99,20 +99,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "all-products",
-                element: <AllProducts />,
-                loader: (async () => {
-                    try {
-                        const token = localStorage.getItem('token');
-                        const headers = {
-                            Authorization: `Bearer ${token}`
-                        };
-                        const response = await axios.get(`${import.meta.env.VITE_API_URL}/products`, { headers });
-                        return response.data;
-                    } catch (error) {
-                        console.error('Error fetching products:', error);
-                        throw error; // Rethrow the error to handle it outside
-                    }
-                })
+                element: <AllProducts />
             },
             {
                 path: "edit-product/:id",

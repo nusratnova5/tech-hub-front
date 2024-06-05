@@ -58,7 +58,6 @@ const SingleProducts = ({ propProduct, setProducts, allProducts }) => {
             <td>
                 <button onClick={handleDelete} className="btn btn-error bg-red-900 text-white mr-2">Delete</button>
                 <Link to={`/dashboard/edit-product/${propProduct._id}`} className="btn bg-lime-900 text-white mr-2">Edit</Link>
-                <Link to={`/dashboard/product-details/${propProduct._id}`} className="btn bg-purple-900 text-white mr-2">Details</Link>
             </td>
         </tr>
 

@@ -26,7 +26,7 @@ const Login = () => {
         const password = form.password.value;
         const res = await signInWithEmailAndPassword(email, password);
         if (res.user) {
-            getToken(res.user.email)
+            getToken(res.user.email);
         }
     }
     const location = useLocation();
@@ -69,11 +69,12 @@ const Login = () => {
                 photoURL: googleuser.photoURL,
                 email: googleuser.email
             };
-            axios.post(`${import.meta.env.VITE_API_URL}/auth/register`, userData);
-            await getToken(googleuser.email)
+            await axios.post(`${import.meta.env.VITE_API_URL}/auth/register`, userData);
             console.log('User created successfully:', response.acknowledged);
         } catch (error) {
             console.error('Error creating user:', error.response ? error.response.data : error.message);
+        } finally {
+            await getToken(googleuser.email);
         }
     }
 

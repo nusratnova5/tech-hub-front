@@ -1,10 +1,9 @@
 import React from 'react';
 
-const SingleBrand = ({propProduct}) => {
+const SingleBrand = ({brand}) => {
     return (
         <div className='bg-purple-400 p-3 rounded-lg text-white font-bold'>
-            <p>{propProduct?.brand}</p>
-            
+            <p>{brand}</p>
         </div>
     );
 };
