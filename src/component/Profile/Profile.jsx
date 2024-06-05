@@ -45,26 +45,26 @@ const Profile = () => {
         });
     }
     return (
-        <div>
+        <div className='my-10'>
             <form onSubmit={updateProfile}>
-                <div>
-                    <img src={userData.photoURL} alt="" />
+                <div className='flex justify-center items-center mb-5'>
+                    <img className=' h-36 w-36 object-cover' src={userData.photoURL} alt="" />
                 </div>
-                <label className="form-control w-full">
+                <label className="form-control w-1/2 mx-auto">
                     <div className="label">
-                        <span className="label-text font-bold">Title</span>
+                        <span className="label-text font-bold">Name</span>
                     </div>
-                    <input type="text" name='displayName' onChange={(e) => setDisplayName(e.target.value)} defaultValue={displayName} placeholder="Title" className="input input-bordered w-full" />
+                    <input type="text" name='displayName' onChange={(e) => setDisplayName(e.target.value)} defaultValue={displayName} placeholder="Name" className="input input-bordered w-full" />
                 </label>
-                <label className="form-control w-full">
+                <label className="form-control  w-1/2 mx-auto">
                     <div className="label">
-                        <span className="label-text font-bold">Brand</span>
+                        <span className="label-text font-bold">Image Url</span>
                     </div>
-                    <input type="text" name='photoURL' onChange={(e) => setPhotoURL(e.target.value)} defaultValue={photoURL} placeholder="Brand" className="input input-bordered w-full" />
+                    <input type="text" name='photoURL' onChange={(e) => setPhotoURL(e.target.value)} defaultValue={photoURL} placeholder="Url" className="input input-bordered w-full" />
                 </label>
 
-                <div>
-                    <button type='submit' className="btn bg-purple-900 mt-5 text-white text-xl">Update</button>
+                <div className=' w-1/2 mx-auto'>
+                    <button type='submit' className="btn bg-purple-900 my-5 text-white text-xl ">Update</button>
                 </div>
             </form>
         </div>

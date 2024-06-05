@@ -9,11 +9,11 @@ const QuickTips = () => {
             Tech Tidbits & Tweaks
            </h2>
 
-            <div className="flex flex-wrap items-center mt-10 text-left ">
+            <div className="flex flex-wrap items-center mt-10 text-left lg:gap-0 gap-5 ">
                 <div className="w-full md:w-3/5 lg:w-1/2 px-4">
                     <img src={img1} alt="gem" className="inline-block rounded shadow-lg border border-merino-400" />
                 </div>
-                <div className="w-full md:w-2/5 lg:w-1/2 px-4 text-center md:text-left lg:pl-12">
+                <div className="w-full md:w-2/5 lg:w-1/2 px-4 lg:pl-12">
                     <ul className='list-disc'>
                         <li>
                             <p>

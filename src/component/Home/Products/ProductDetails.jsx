@@ -45,13 +45,13 @@ const ProductDetails = () => {
     }
 
     return (
-        <div className="card w-full lg:w-1/2 bg-base-100 shadow-xl mx-auto">
+        <div className="card w-full lg:w-1/2 bg-base-100 shadow-xl mx-auto my-20 ">
             <figure className="px-10 pt-10">
                 <img src={product?.imageUrl} alt="Shoes" className="rounded-xl h-80" />
             </figure>
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center mb-10">
                 <h2 className="card-title">{product?.title}</h2>
-                <div className='flex gap-10'>
+                <div className='flex gap-10 m-5'>
                     <div>
                         <span className='font-bold'>Brand: </span>
                         <span>{product?.brand}</span>
@@ -61,10 +61,12 @@ const ProductDetails = () => {
                         <span>{product?.price}</span>
                     </div>
                 </div>
-                <p className='text-base/7 ...'>{product?.description}</p>
+                <p className='mx-auto'>{product?.description}</p>
             </div>
-            <button onClick={buyProduct} className='btn btn-primary'>Buy</button>
+<div className='relative'>
+<button onClick={buyProduct} className='btn bg-purple-400 px-7 m-5  absolute bottom-0 right-0 '>Buy</button>
 
+</div>
         </div>
     );
 };

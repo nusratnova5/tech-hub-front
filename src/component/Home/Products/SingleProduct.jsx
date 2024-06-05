@@ -14,7 +14,7 @@ const SingleProduct = ({propProduct}) => {
                 <h2 className="card-title">{propProduct?.title}</h2>
                 <p>{propProduct?.description?.substring(0, 100)}</p>
                 <div className="card-actions">
-                    <Link to={`/product-details/${propProduct._id}`} className="btn bg-lime-300">Details</Link>
+                    <Link to={`/product-details/${propProduct._id}`} className="btn bg-purple-400">Details</Link>
                 </div>
             </div>
         </div>

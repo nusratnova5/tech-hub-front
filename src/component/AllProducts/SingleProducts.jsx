@@ -56,9 +56,9 @@ const SingleProducts = ({ propProduct, setProducts, allProducts }) => {
             <th>{propProduct?.price}</th>
             <th>{propProduct?.status == 1 ? 'Not sold' : 'Sold'}</th>
             <td>
-                <button onClick={handleDelete} className="btn btn-error bg-red-900 text-white">Delete</button>
-                <Link to={`/dashboard/edit-product/${propProduct._id}`} className="btn bg-orange-500">Edit</Link>
-                <Link to={`/dashboard/product-details/${propProduct._id}`} className="btn bg-lime-300">Details</Link>
+                <button onClick={handleDelete} className="btn btn-error bg-red-900 text-white mr-2">Delete</button>
+                <Link to={`/dashboard/edit-product/${propProduct._id}`} className="btn bg-lime-900 text-white mr-2">Edit</Link>
+                <Link to={`/dashboard/product-details/${propProduct._id}`} className="btn bg-purple-900 text-white mr-2">Details</Link>
             </td>
         </tr>
 
