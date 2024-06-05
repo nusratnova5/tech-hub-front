@@ -8,7 +8,7 @@ const SingleProduct = ({propProduct}) => {
     return (
         <div className="card w-full bg-base-100 shadow-xl ">
             <figure className="px-10 pt-10">
-                <img src={propProduct?.imageUrl} alt="Shoes" className="rounded-xl h-48 w-full object-cover" />
+                <img src={propProduct?.imageUrl} alt="Products" className="rounded-xl h-48 w-full object-cover" />
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{propProduct?.title}</h2>

@@ -47,7 +47,7 @@ const ProductDetails = () => {
     return (
         <div className="card w-full lg:w-1/2 bg-base-100 shadow-xl mx-auto my-20 ">
             <figure className="px-10 pt-10">
-                <img src={product?.imageUrl} alt="Shoes" className="rounded-xl h-80" />
+                <img src={product?.imageUrl} alt="Products" className="rounded-xl h-80" />
             </figure>
             <div className="card-body items-center text-center mb-10">
                 <h2 className="card-title">{product?.title}</h2>

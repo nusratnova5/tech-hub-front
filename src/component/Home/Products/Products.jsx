@@ -4,8 +4,8 @@ import { useLoaderData, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 
 const Products = () => {
-    const loaderShoes = useLoaderData();
-    const [products, setProducts] = useState(loaderShoes);
+    const loaderProducts = useLoaderData();
+    const [products, setProducts] = useState(loaderProducts);
 
     const [searchParams] = useSearchParams(); // Get the search parameters
 

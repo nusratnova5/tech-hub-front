@@ -6,8 +6,8 @@ import { auth } from '../../../Firebase/Firebase.config';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 const HomeProducts = () => {
-    const loaderShoes = useLoaderData();
-    const [products, setProducts] = useState(loaderShoes);
+    const loaderProducts = useLoaderData();
+    const [products, setProducts] = useState(loaderProducts);
     const [user] = useAuthState(auth);
     console.log(user?.email)
 

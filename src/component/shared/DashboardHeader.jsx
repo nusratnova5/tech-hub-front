@@ -17,7 +17,7 @@ const DashboardHeader = ({ toggleSidebar }) => {
     return (
         <div className="navbar fixed px-2 lg:px-10 z-10">
             <div className="flex-1 d-block lg:d-none">
-                <a className="btn btn-ghost text-xl text-red-900">Stride Style</a>
+                <a className="btn btn-ghost text-xl text-red-900">Tech Hub</a>
             </div>
             <div className="flex-none gap-2">
                 <div className="drawer-content flex flex-col items-center justify-center">

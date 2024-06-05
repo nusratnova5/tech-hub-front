@@ -4,15 +4,15 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const EditProduct = () => {
-    const shoe = useLoaderData();
+    const product = useLoaderData();
     const { id } = useParams(); // Get the product ID from URL parameters
 
 
-    const [title, setTitle] = useState(shoe.title);
-    const [brand, setBrand] = useState(shoe.brand);
-    const [price, setPrice] = useState(shoe.price);
-    const [description, setDescription] = useState(shoe.description);
-    const [imageUrl, setImage] = useState(shoe.imageUrl);
+    const [title, setTitle] = useState(product.title);
+    const [brand, setBrand] = useState(product.brand);
+    const [price, setPrice] = useState(product.price);
+    const [description, setDescription] = useState(product.description);
+    const [imageUrl, setImage] = useState(product.imageUrl);
 
     const editProduct = (e) => {
         e.preventDefault();
