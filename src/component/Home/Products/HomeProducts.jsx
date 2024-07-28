@@ -14,7 +14,7 @@ const HomeProducts = () => {
     const [searchParams] = useSearchParams(); // Get the search parameters
 
     const title = searchParams.get('title');
-    const token = localStorage.getItem('token');    
+    const token = localStorage.getItem('token');
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -25,8 +25,8 @@ const HomeProducts = () => {
                             Authorization: `Bearer ${token}`
                         }
                     };
-                    const url = `${import.meta.env.VITE_API_URL}/products?notEmail=${user?.email}${title ? `&title=${encodeURIComponent(title)}` : ''}`;
-                    const response = await axios.get(url,config);
+                    const url = `${import.meta.env.VITE_API_URL}/products?${title ? `title=${encodeURIComponent(title)}` : ''}`;
+                    const response = await axios.get(url, config);
                     setProducts(response.data);
                 }
             } catch (error) {
@@ -35,19 +35,20 @@ const HomeProducts = () => {
         };
 
         fetchProducts();
-    }, [user,token]);
+    }, [user, token]);
     return (
-        <div className='text-center mt-20'>
-        <h3 className='text-5xl font-bold'>Our products</h3>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-            {products?.reverse()?.slice(0,3)?.map(product => (
-                <SingleProduct propProduct={product} key={product._id} />
-            ))}
-        </div>
-        <div>
+        <div className='mt-20 w-3/4 mx-auto'>
+            <p className='tracking-widest uppercase text-accent mt-36 mb-4'>Top Picks</p>
+            <p className='text-4xl font-bold w-[80%] text-accent mb-16'>Discover Cutting-Edge Tech Accessories at the Ultimate Gadget Destination</p>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                {products?.reverse()?.slice(0, 6)?.map(product => (
+                    <SingleProduct propProduct={product} key={product._id} />
+                ))}
+            </div>
+            <div>
 
+            </div>
         </div>
-    </div>
     );
 };
 

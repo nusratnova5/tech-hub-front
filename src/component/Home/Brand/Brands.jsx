@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData, useSearchParams } from 'react-router-dom';
 import SingleBrand from './SingleBrand';
 import axios from 'axios';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Brands = () => {
     const [products, setProducts] = useState([]);
@@ -37,17 +40,30 @@ const Brands = () => {
 
         fetchProducts();
     }, [token]);
-    return (
-        <div className='text-center my-20'>
-            <h3 className='text-5xl font-bold'>Our Exclusive Brands</h3>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10'>
-                {brands?.map(brand => (
-                    <SingleBrand brand={brand} key={brand} />
-                ))}
-            </div>
-            <div>
 
-            </div>
+    const settings = {
+        dots: false,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        speed: 3000,
+        autoplaySpeed: 3000,
+        cssEase: "linear"
+    };
+
+    return (
+        <div className='slider-container w-3/4 mx-auto'>     
+                <div className='text-center my-20'>
+                    <h3 className='text-5xl text-accent font-bold mb-10'>Our Exclusive Brands</h3>
+                    <div className=''>
+                    <Slider {...settings}>
+                        {brands?.map(brand => (
+                            <SingleBrand brand={brand} key={brand} />
+                        ))}
+            </Slider>
+                    </div>
+                </div>
         </div>
     );
 };

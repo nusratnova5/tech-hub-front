@@ -1,7 +1,7 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Navigate, useLocation } from "react-router-dom";
 import { auth } from "../Firebase/Firebase.config";
-import Loading from "../component/Shared/Loading";
+import Loading from "../component/shared/Loading";
 
 // eslint-disable-next-line react/prop-types
 export default function PrivateRoute({ children }) {

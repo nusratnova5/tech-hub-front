@@ -4,6 +4,11 @@ import { useLoaderData } from 'react-router-dom';
 import { auth } from '../../../Firebase/Firebase.config';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { FaTag } from 'react-icons/fa';
+import { IoPricetags } from 'react-icons/io5';
+import { GiCheckMark } from 'react-icons/gi';
+import Products from './Products';
+import ProductFeedback from '../../Feedback/ProductFeedback';
 
 const ProductDetails = () => {
     const product = useLoaderData();
@@ -45,29 +50,51 @@ const ProductDetails = () => {
     }
 
     return (
-        <div className="card w-full lg:w-1/2 bg-base-100 shadow-xl mx-auto my-20 ">
-            <figure className="px-10 pt-10">
-                <img src={product?.imageUrl} alt="Products" className="rounded-xl h-80" />
-            </figure>
-            <div className="card-body items-center text-center mb-10">
-                <h2 className="card-title">{product?.title}</h2>
-                <div className='flex gap-10 m-5'>
-                    <div>
-                        <span className='font-bold'>Brand: </span>
-                        <span>{product?.brand}</span>
-                    </div>
-                    <div>
-                        <span className='font-bold'>Price: </span>
-                        <span>{product?.price}</span>
-                    </div>
-                </div>
-                <p className='mx-auto'>{product?.description}</p>
+       <div>
+         <div className="grid lg:grid-cols-6 grid-cols-1 gap-8 w-3/4 mx-auto my-10">
+            <div className="col-span-2 w-full h-[470px] overflow-hidden aspect-square border border-accent">
+                <img src={product?.imageUrl} alt="Products" className="w-full object-cover" />
             </div>
-<div className='relative'>
-<button onClick={buyProduct} className='btn bg-purple-400 px-7 m-5  absolute bottom-0 right-0 '>Buy</button>
-
-</div>
+            <div className="col-span-4">
+                <h2 className="card-title text-accent text-3xl mb-2">{product?.title}</h2>
+                <div className='flex items-center gap-1 text-gray-700'>
+                    <span className='text-xl text-gray-700'><IoPricetags /></span>
+                    <span className='text-xl text-gray-700'>{product?.brand}</span>
+                </div>
+                <div className='flex items-center'>
+                    <span className='text-2xl'>৳</span>
+                    <span className='ml-1 mt-2'>{product?.price}</span>
+                </div>
+                <p className='w-[80%] mt-3'>{product?.description}</p>
+                <div className=''>
+                    <button onClick={buyProduct} className='btn bg-accent text-white px-7 tracking-widest mt-3 rounded-none'>ADD TO CART</button>
+                </div>
+                <hr className='lg:w-[85%] mt-5 border-gray-300' />
+                <div>
+                    <p className='my-2 text-accent font-bold'>Delivery charge: Inside Dhaka <span className='text-xl'>৳</span>80 | Outside Dhaka <span className='text-xl'>৳</span>150 </p>
+                    <div className='flex items-center gap-1'>
+                    <GiCheckMark/>
+                    <p>No-Risk Money Back Guarantee!</p>
+                    </div>
+                    <div className='flex items-center gap-1'>
+                    <GiCheckMark/>
+                    <p>No Hassle Refunds</p>
+                    </div>
+                    <div className='flex items-center gap-1'>
+                    <GiCheckMark/>
+                    <p>Secure Payments</p>
+                    </div>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
         </div>
+        <hr className='w-3/4 mx-auto' />
+        <ProductFeedback productId={product?._id}/>
+        <div>
+            
+        </div>
+       </div>
     );
 };
 

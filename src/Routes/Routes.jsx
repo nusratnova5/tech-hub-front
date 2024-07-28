@@ -13,6 +13,7 @@ import Products from "../component/Home/Products/Products";
 import ProductDetails from "../component/Home/Products/ProductDetails";
 import axios from "axios";
 import Profile from "../component/Profile/Profile";
+import Contact from "../component/Contact/Contact";
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />
+            },
+            {
+                path: "/contact",
+                element: <Contact />,
             },
             {
                 path: "product-details/:id",

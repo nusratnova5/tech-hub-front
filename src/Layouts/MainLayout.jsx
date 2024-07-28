@@ -1,13 +1,15 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Navbar from '../component/Shared/Navbar';
-import Footer from '../component/Shared/Footer';
+import Navbar from '../component/shared/Navbar';
+import Footer from '../component/shared/Footer';
 
 const MainLayout = () => {
     return (
-        <div className='w-3/4 m-auto'>
+        <div className='flex flex-col'>
             <Navbar/>
+            <div className='flex-1'>
             <Outlet/>
+            </div>
             <Footer/>
         </div>
     );

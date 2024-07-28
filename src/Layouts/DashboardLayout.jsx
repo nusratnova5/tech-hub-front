@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import DashboardHeader from '../component/Shared/DashboardHeader';
-import SideBar from '../component/Shared/SideBar';
+import DashboardHeader from '../component/shared/DashboardHeader';
+import SideBar from '../component/shared/SideBar';
 
 const DashboardLayout = () => {
     const [isOpenSidebar, setIsOpenIsdebar] = useState(false);

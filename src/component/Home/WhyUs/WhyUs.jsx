@@ -6,7 +6,7 @@ import img4 from '../WhyUs/images/easy_return.png';
 
 const WhyUs = () => {
     return (
-        <div className="text-center p-8 my-20">
+        <div className="text-center p-8 my-20 w-3/4 mx-auto">
             <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                 Why to choose US?
             </h2>

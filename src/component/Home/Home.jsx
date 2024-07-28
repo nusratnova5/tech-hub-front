@@ -6,16 +6,19 @@ import Faq from './FAQ/Faq';
 import QuickTips from './QuickTips/QuickTips';
 import HomeProducts from './Products/HomeProducts';
 import Brands from './Brand/Brands';
+import PromoOne from '../shared/PromoOne/PromoOne';
+import Feedback from '../Feedback/Feedback';
 
 const Home = () => {
     return (
-        <div className='my-10'>
+        <div className=''>
             <Banner/>
             <HomeProducts/>
             <Brands/>
-            <QuickTips/>
+            {/* <QuickTips/> */}
             <WhyUs/>
-            <Faq/>
+            <Feedback/>
+            <PromoOne/>
         </div>
     );
 };

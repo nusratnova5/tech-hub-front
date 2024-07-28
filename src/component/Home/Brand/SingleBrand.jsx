@@ -1,9 +1,12 @@
 import React from 'react';
 
-const SingleBrand = ({brand}) => {
+const SingleBrand = ({ brand }) => {
     return (
-        <div className='bg-purple-400 p-3 rounded-lg text-white font-bold'>
-            <p>{brand}</p>
+        <div className='px-4'>
+            <div className='bg-accent p-3 text-white font-bold h-20 flex items-center justify-center'>
+    <p className='tracking-widest uppercase'>{brand}</p>
+</div>
+
         </div>
     );
 };

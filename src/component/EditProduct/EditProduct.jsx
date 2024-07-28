@@ -66,41 +66,41 @@ const EditProduct = () => {
 
     }
     return (
-        <div>
+        <div className='w-3/4'>
             <form onSubmit={editProduct}>
                 <label className="form-control w-full">
                     <div className="label">
                         <span className="label-text font-bold">Title</span>
                     </div>
-                    <input type="text" name='title' onChange={(e) => setTitle(e.target.value)}  defaultValue={title} placeholder="Title" className="input input-bordered w-full" />
+                    <input type="text" name='title' onChange={(e) => setTitle(e.target.value)}  defaultValue={title} placeholder="Title" className="input input-bordered rounded-none w-full" />
                 </label>
                 <label className="form-control w-full">
                     <div className="label">
                         <span className="label-text font-bold">Brand</span>
                     </div>
-                    <input type="text" name='brand' onChange={(e) => setBrand(e.target.value)}  defaultValue={brand} placeholder="Brand" className="input input-bordered w-full" />
+                    <input type="text" name='brand' onChange={(e) => setBrand(e.target.value)}  defaultValue={brand} placeholder="Brand" className="input input-bordered rounded-none w-full" />
                 </label>
                 <label className="form-control w-full">
                     <div className="label">
                         <span className="label-text font-bold">Price</span>
                     </div>
-                    <input type="text" name='price' onChange={(e) => setPrice(e.target.value)}  defaultValue={price} placeholder="Price" className="input input-bordered w-full" />
+                    <input type="text" name='price' onChange={(e) => setPrice(e.target.value)}  defaultValue={price} placeholder="Price" className="input input-bordered rounded-none w-full" />
                 </label>
                 <label className="form-control w-full">
                     <div className="label">
                         <span className="label-text font-bold">Description</span>
                     </div>
-                    <input type="text" name='description' onChange={(e) => setDescription(e.target.value)}  defaultValue={description} placeholder="Description" className="input input-bordered w-full" />
+                    <input type="text" name='description' onChange={(e) => setDescription(e.target.value)}  defaultValue={description} placeholder="Description" className="input input-bordered rounded-none w-full" />
                 </label>
                 <label className="form-control w-full">
                     <div className="label">
                         <span className="label-text font-bold">Image Url</span>
                     </div>
-                    <input type="text" name='imageUrl' onChange={(e) => setImage(e.target.value)}  defaultValue={imageUrl} placeholder="Image Url" className="input input-bordered w-full" />
+                    <input type="text" name='imageUrl' onChange={(e) => setImage(e.target.value)}  defaultValue={imageUrl} placeholder="Image Url" className="input input-bordered rounded-none w-full" />
                 </label>
 
                 <div>
-                <button type='submit' className="btn bg-purple-900 mt-5 text-white text-xl">Update</button>
+                <button type='submit' className="btn bg-accent rounded-none uppercase tracking-widest mt-5 text-white text-xl">Update</button>
                 </div>
             </form>
         </div>
