@@ -46,7 +46,7 @@ const ProductFeedback = ({productId}) => {
     }
 
     return (
-        <div>
+        <div className='border border-gray-100'>
             <div className="flex">
                 {Array(fullStars).fill(0).map((_, i) => (
                     <button key={`full-${i}`} onClick={() => handleRating(i + 1)}>

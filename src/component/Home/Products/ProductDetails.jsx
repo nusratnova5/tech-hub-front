@@ -12,6 +12,7 @@ import ProductFeedback from '../../Feedback/ProductFeedback';
 
 const ProductDetails = () => {
     const product = useLoaderData();
+    const [showingTab, setShowingTab] = useState('description')
     const [user] = useAuthState(auth);
 
     const buyProduct = (e) => {
@@ -50,51 +51,76 @@ const ProductDetails = () => {
     }
 
     return (
-       <div>
-         <div className="grid lg:grid-cols-6 grid-cols-1 gap-8 w-3/4 mx-auto my-10">
-            <div className="col-span-2 w-full h-[470px] overflow-hidden aspect-square border border-accent">
-                <img src={product?.imageUrl} alt="Products" className="w-full object-cover" />
-            </div>
-            <div className="col-span-4">
-                <h2 className="card-title text-accent text-3xl mb-2">{product?.title}</h2>
-                <div className='flex items-center gap-1 text-gray-700'>
-                    <span className='text-xl text-gray-700'><IoPricetags /></span>
-                    <span className='text-xl text-gray-700'>{product?.brand}</span>
-                </div>
-                <div className='flex items-center'>
-                    <span className='text-2xl'>৳</span>
-                    <span className='ml-1 mt-2'>{product?.price}</span>
-                </div>
-                <p className='w-[80%] mt-3'>{product?.description}</p>
-                <div className=''>
-                    <button onClick={buyProduct} className='btn bg-accent text-white px-7 tracking-widest mt-3 rounded-none'>ADD TO CART</button>
-                </div>
-                <hr className='lg:w-[85%] mt-5 border-gray-300' />
-                <div>
-                    <p className='my-2 text-accent font-bold'>Delivery charge: Inside Dhaka <span className='text-xl'>৳</span>80 | Outside Dhaka <span className='text-xl'>৳</span>150 </p>
-                    <div className='flex items-center gap-1'>
-                    <GiCheckMark/>
-                    <p>No-Risk Money Back Guarantee!</p>
-                    </div>
-                    <div className='flex items-center gap-1'>
-                    <GiCheckMark/>
-                    <p>No Hassle Refunds</p>
-                    </div>
-                    <div className='flex items-center gap-1'>
-                    <GiCheckMark/>
-                    <p>Secure Payments</p>
-                    </div>
-                    <p></p>
-                    <p></p>
-                </div>
-            </div>
-        </div>
-        <hr className='w-3/4 mx-auto' />
-        <ProductFeedback productId={product?._id}/>
         <div>
-            
+            <div className="grid lg:grid-cols-6 grid-cols-1 gap-8 w-3/4 mx-auto my-10">
+                <div className="col-span-2 w-full h-[470px] overflow-hidden aspect-square border border-accent">
+                    <img src={product?.imageUrl} alt="Products" className="w-full object-cover" />
+                </div>
+                <div className="col-span-4">
+                    <h2 className="card-title text-accent text-3xl mb-2">{product?.title}</h2>
+                    <div className='flex items-center gap-1 text-gray-700'>
+                        <span className='text-xl text-gray-700'><IoPricetags /></span>
+                        <span className='text-xl text-gray-700'>{product?.brand}</span>
+                    </div>
+                    <div className='flex items-center'>
+                        <span className='text-2xl'>৳</span>
+                        <span className='ml-1 mt-2'>{product?.price}</span>
+                    </div>
+                    <p className='w-[80%] mt-3'>{product?.description}</p>
+                    <div className=''>
+                        <button onClick={buyProduct} className='btn bg-accent text-white px-7 tracking-widest mt-3 rounded-none'>ADD TO CART</button>
+                    </div>
+                    <hr className='lg:w-[85%] mt-5 border-gray-300' />
+                    <div>
+                        <p className='my-2 text-accent font-bold'>Delivery charge: Inside Dhaka <span className='text-xl'>৳</span>80 | Outside Dhaka <span className='text-xl'>৳</span>150 </p>
+                        <div className='flex items-center gap-1'>
+                            <GiCheckMark />
+                            <p>No-Risk Money Back Guarantee!</p>
+                        </div>
+                        <div className='flex items-center gap-1'>
+                            <GiCheckMark />
+                            <p>No Hassle Refunds</p>
+                        </div>
+                        <div className='flex items-center gap-1'>
+                            <GiCheckMark />
+                            <p>Secure Payments</p>
+                        </div>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            {/* <ProductFeedback productId={product?._id}/> */}
+            {/* <div role="tablist" className="tabs tabs-bordered">
+                <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Tab 1" />
+                <div role="tabpanel" className="tab-content p-10">{product?.description}</div>
+
+                <input
+                    type="radio"
+                    name="my_tabs_1"
+                    role="tab"
+                    className="tab"
+                    aria-label="Tab 2"
+                    defaultChecked />
+                <div role="tabpanel" className="tab-content p-10"><ProductFeedback productId={product?._id}/></div>
+
+                <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Tab 3" />
+                <div role="tabpanel" className="tab-content p-10">Tab content 3</div>
+            </div> */}
+
+            <div className='w-3/4 mx-auto'>
+                <div>
+                    <button type='button' onClick={() => setShowingTab('description')}>details</button>
+                    <button type='button' onClick={() => setShowingTab('review')}>review</button>
+                </div>
+                <div>
+                    {showingTab === "description" && <p>{product?.description}</p>}
+                    {showingTab === "review" && <ProductFeedback productId={product?._id} />}
+                </div>
+            </div>
+
+            <Products heading={'uygvuhgv'} />
         </div>
-       </div>
     );
 };
 
