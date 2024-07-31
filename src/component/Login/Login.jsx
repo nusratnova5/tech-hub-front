@@ -80,34 +80,35 @@ const Login = () => {
 
     return (
         <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="hero-content flex-col lg:flex-row">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold text-purple-900">Login now!</h1>
-                    <p className="py-6">Sign in to unlock a personalized experience at our tech accessories shop. Explore your order history, save your favorite gadgets, and enjoy swift, secure checkouts. Elevate your tech game with ease!</p>
+                    <h1 className="text-5xl font-bold text-accent text-center">Welcome <br /> to <br />TechHub</h1>
                 </div>
-                <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="divider lg:divider-horizontal bg-gray-300"></div>
+
+                <div className="card shrink-0 w-full max-w-sm ">
                     <form onSubmit={handleSignIn} className="card-body pb-3">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold">Email</span>
                             </label>
-                            <input type="email" name="email" placeholder="email" defaultValue={'test@gmail.com'} className="input input-bordered" required />
+                            <input type="email" name="email" placeholder="email" defaultValue={'test@gmail.com'} className="input input-bordered rounded-none" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="password" defaultValue={'123456'} className="input input-bordered" required />
+                            <input type="password" name='password' placeholder="password" defaultValue={'123456'} className="input input-bordered rounded-none" required />
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn bg-purple-900 hover:bg-slate-700 text-white font-bold">Login</button>
+                            <button className="btn bg-accent  text-white font-bold rounded-none">Login</button>
                         </div>
                     </form>
                     <div className="form-control mx-7 mb-3 ">
-                        <button onClick={handleGoogleLogin} className="btn bg-purple-400 hover:bg-stone-700 text-dark font-bold">Google</button>
+                        <button onClick={handleGoogleLogin} className="btn bg-accent  text-white font-bold rounded-none">Google</button>
                     </div>
                     <div className='mx-7 mb-3'>
-                        <p>Don't have any account? <Link to={'/register'} className='text-purple-900 font-bold'>Click here </Link>to register.</p>
+                        <p>Don't have any account? <Link to={'/register'} className='text-accent font-bold'>Click here </Link>to register.</p>
                     </div>
                 </div>
             </div>

@@ -1,22 +1,18 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import StatusPieChart from './StatusPieChart';
+import PriceBarChart from './PriceBarChart';
 
 const Dashboard = () => {
-    const data = useLoaderData();
     return (
         <div>
-            <div className="grid grid-cols-2 gap-10">
-                <div className="card w-full bg-purple-400 text-white">
-                    <div className="card-body">
-                        <h2 className="card-title">Total User</h2>
-                        <p>{data?.userCount}</p>
-                    </div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <div className="card w-full bg-gray-100 p-4">
+                    <h3 className="font-bold  text-accent text-2xl text-center">Product Status</h3>
+                    <StatusPieChart />
                 </div>
-                <div className="card w-full bg-purple-400 text-white">
-                    <div className="card-body">
-                        <h2 className="card-title">Total Products</h2>
-                        <p>{data?.productCount}</p>
-                    </div>
+                <div className="card w-full bg-gray-100 p-4 col-span-2">
+                    <h3 className="font-bold  text-accent text-2xl text-center mb-16">Price Range</h3>
+                    <PriceBarChart />
                 </div>
             </div>
         </div>

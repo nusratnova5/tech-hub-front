@@ -17,7 +17,7 @@ const Home = () => {
             <Brands/>
             {/* <QuickTips/> */}
             <WhyUs/>
-            <Feedback/>
+            {/* <Feedback/> */}
             <PromoOne/>
         </div>
     );

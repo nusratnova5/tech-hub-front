@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import SingleProducts from './SingleProducts';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../Firebase/Firebase.config';
 import axios from 'axios';
+import { VscDiffAdded } from 'react-icons/vsc';
+import { RiAddLargeLine } from 'react-icons/ri';
 
 const AllProducts = () => {
     const [products, setSProducts] = useState([]);
@@ -31,6 +33,10 @@ const AllProducts = () => {
     return (
         <div>
             <div className="overflow-x-auto">
+                <div className='flex justify-between mr-32 mb-12'>
+                    <h1 className='text-accent text-3xl font-bold uppercase tracking-widest'>All Products</h1>
+                    <Link to={'/dashboard/add-products'} className='flex justify-center items-center gap-1 px-3 py-2 text-white bg-accent tracking-widest'><RiAddLargeLine className=''/><p>Add</p></Link>
+                </div>
                 <table className="table">
                     <thead>
                         <tr>

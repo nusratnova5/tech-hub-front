@@ -7,13 +7,13 @@ import img4 from '../WhyUs/images/easy_return.png';
 const WhyUs = () => {
     return (
         <div className="text-center p-8 my-20 w-3/4 mx-auto">
-            <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+            <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-accent">
                 Why to choose US?
             </h2>
 
             <div className="flex flex-wrap items-center mt-10 text-left ">
                 <div className="w-full md:w-3/5 lg:w-1/2 px-4">
-                    <img src= {img1} alt="gem" className="inline-block rounded shadow-lg border border-merino-400" />
+                    <img src= {img1} alt="gem" className="inline-block rounded shadow-lg border border-merino-400 lg:h-[336px] w-full object-cover" />
                 </div>
                 <div className="w-full md:w-2/5 lg:w-1/2 px-4 text-center md:text-left lg:pl-12">
                     <h3 className="font-bold mt-8 text-xl md:mt-0 sm:text-2xl">
@@ -24,9 +24,9 @@ const WhyUs = () => {
                 </div>
             </div>
 
-            <div className="flex flex-wrap items-center mt-20 text-left">
+            <div className="flex flex-wrap items-center mt-20 text-left ">
                 <div className="w-full md:w-3/5 lg:w-1/2 px-4">
-                    <img src={img2} alt="project members" className="inline-block rounded shadow-lg border border-merino-400" />
+                    <img src={img2} alt="project members" className="inline-block rounded shadow-lg border border-merino-400 lg:h-[336px] w-full object-cover" />
                 </div>
                 <div className="w-full md:w-2/5 lg:w-1/2 px-4 md:order-first text-center md:text-left lg:pr-12">
                     <h3 className="font-bold mt-8 text-xl md:mt-0 sm:text-2xl">
@@ -38,9 +38,9 @@ const WhyUs = () => {
                 </div>
             </div>
 
-            <div className="flex flex-wrap items-center mt-20 text-left ">
+            <div className="flex flex-wrap items-center mt-20 text-left">
                 <div className="w-full md:w-3/5 lg:w-1/2 px-4">
-                    <img src={img3} alt="editor" className="inline-block rounded shadow-lg border border-merino-400" />
+                    <img src={img3} alt="editor" className="inline-block rounded shadow-lg border border-merino-400 lg:h-[336px] w-full object-cover" />
                 </div>
                 <div className="w-full md:w-2/5 lg:w-1/2 px-4 text-center md:text-left lg:pl-12">
                     <h3 className="font-bold mt-8 text-xl md:mt-0 sm:text-2xl">
@@ -52,9 +52,9 @@ const WhyUs = () => {
                 </div>
             </div>
 
-            <div className="flex flex-wrap items-center mt-20 text-left">
+            <div className="flex flex-wrap items-center mt-20 text-left lg:h-[336px]">
                 <div className="w-full md:w-3/5 lg:w-1/2 px-4">
-                    <img src={img4} alt="bulk editing" className="inline-block rounded shadow-lg border border-merino-400" />
+                    <img src={img4} alt="bulk editing" className="inline-block rounded shadow-lg border border-merino-400 w-full lg:h-[336px] object-cover" />
                 </div>
                 <div className="w-full md:w-2/5 lg:w-1/2 px-4 md:order-first text-center md:text-left lg:pr-12">
                     <h3 className="font-bold mt-8 text-xl md:mt-0 sm:text-2xl">

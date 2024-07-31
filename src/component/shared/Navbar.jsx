@@ -43,7 +43,7 @@ const Navbar = () => {
         </div>
         <div className="mx-2 flex-1 px-2 flex items-center justify-between">
           <div className="flex items-center">
-            <div className="text-3xl font-bold">TechHub</div> {/* Add your logo here */}
+            <div className="text-3xl font-bold font-playfair">TechHub</div> {/* Add your logo here */}
           </div>
           <div className="hidden lg:flex flex-1 justify-center font-bold">
             <ul className="menu menu-horizontal">

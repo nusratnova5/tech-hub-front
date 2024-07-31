@@ -8,17 +8,17 @@ const Contact = () => {
     return (
         <div>
             <div className='bg-accent pt-20'>
-                <div className='flex justify-between lg:h-[470px] w-3/4 mx-auto '>
-                    <div className='flex flex-col justify-center items-start flex-1 text-white px-5'>
+                <div className='flex flex-col lg:flex-row justify-between h-[500px] lg:h-[470px] lg:w-3/4 lg:mx-auto mx-5 gap-5'>
+                    <div className='flex flex-col justify-center lg:items-start items-center flex-1 text-white px-5 lg:px-0'>
                         <h1 className='text-4xl mb-5 font-bold'>Contact Us</h1>
-                        <p className='text-xl'>Hello, Tech Enthusiast! Welcome to the contact TechHub, where your tech journey gets personalized. Whether you're on the hunt for the latest gadgets, need a hand with a product, or simply want to share your thoughts, we're all ears.</p>
+                        <p className='text-xl text-center lg:text-start mb-5 lg:mb-0'>Hello, Tech Enthusiast! Welcome to the contact TechHub, where your tech journey gets personalized. Whether you're on the hunt for the latest gadgets, need a hand with a product, or simply want to share your thoughts, we're all ears.</p>
                     </div>
-                    <div className='h-[530px] w-[400px]'>
+                    <div className='lg:h-[530px] lg:w-[400px] w-[370px] h-[370px]'>
                         <img className='h-full w-full' src={img}></img>
                     </div>
                 </div>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-4 justify-between lg:m-20 '>
+            <div className='grid grid-cols-1 lg:grid-cols-4 justify-between lg:m-20 mt-10 '>
                 <div className='lg:col-span-2 p-10'>
                     <h1 className='text-4xl text-accent font-bold my-5'>Get in touch</h1>
                     <p className='mb-7'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis quaerat vero nisi harum quibusdam sint?</p>
@@ -45,8 +45,8 @@ const Contact = () => {
                             <p>nusrat.nova16@gmail.com</p>
                         </div>
                     </div>
-                    <div>
-                        <h1 className='text-accent font-medium'>FOLLOW</h1>
+                    <div className=''>
+                        <h1 className='text-accent font-medium pt-3 lg:pt-0'>FOLLOW</h1>
                         <div className='flex text-xl gap-5 my-2 text-accent'>
                             <FaFacebook/>
                             <FaInstagram/>

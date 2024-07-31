@@ -28,7 +28,7 @@ const Products = ({heading}) => {
 
     return (
         <div className='text-center w-3/4 mx-auto'>
-            <h3 className='text-4xl font-bold mt-16 mb-8'>{heading}</h3>
+            <h3 className='text-4xl text-accent font-bold mt-16 mb-8'>Our Products</h3>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {products?.map(product => (
                     <SingleProduct propProduct={product} key={product._id} />

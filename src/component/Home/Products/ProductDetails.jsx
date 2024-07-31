@@ -53,7 +53,7 @@ const ProductDetails = () => {
     return (
         <div>
             <div className="grid lg:grid-cols-6 grid-cols-1 gap-8 w-3/4 mx-auto my-10">
-                <div className="col-span-2 w-full h-[470px] overflow-hidden aspect-square border border-accent">
+                <div className="col-span-2 w-full lg:h-[470px] overflow-hidden aspect-square border border-accent">
                     <img src={product?.imageUrl} alt="Products" className="w-full object-cover" />
                 </div>
                 <div className="col-span-4">
@@ -90,36 +90,18 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div>
-            {/* <ProductFeedback productId={product?._id}/> */}
-            {/* <div role="tablist" className="tabs tabs-bordered">
-                <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Tab 1" />
-                <div role="tabpanel" className="tab-content p-10">{product?.description}</div>
-
-                <input
-                    type="radio"
-                    name="my_tabs_1"
-                    role="tab"
-                    className="tab"
-                    aria-label="Tab 2"
-                    defaultChecked />
-                <div role="tabpanel" className="tab-content p-10"><ProductFeedback productId={product?._id}/></div>
-
-                <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Tab 3" />
-                <div role="tabpanel" className="tab-content p-10">Tab content 3</div>
-            </div> */}
-
-            <div className='w-3/4 mx-auto'>
+            <div className='w-3/4 mx-auto border-t-2'>
                 <div>
-                    <button type='button' onClick={() => setShowingTab('description')}>details</button>
-                    <button type='button' onClick={() => setShowingTab('review')}>review</button>
+                    <button type='button' className='btn bg-transparent shadow-none border-none' onClick={() => setShowingTab('description')}>Description</button>
+                    <button type='button' className='btn bg-transparent shadow-none border-none' onClick={() => setShowingTab('review')}>Reviews</button>
                 </div>
                 <div>
-                    {showingTab === "description" && <p>{product?.description}</p>}
+                    {showingTab === "description" && <p className='mt-5'>{product?.description}</p>}
                     {showingTab === "review" && <ProductFeedback productId={product?._id} />}
                 </div>
             </div>
 
-            <Products heading={'uygvuhgv'} />
+            <Products/>
         </div>
     );
 };

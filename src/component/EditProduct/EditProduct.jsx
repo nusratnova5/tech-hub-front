@@ -67,6 +67,7 @@ const EditProduct = () => {
     }
     return (
         <div className='w-3/4'>
+            <h2 className='text-3xl text-accent font-bold mb-8 uppercase tracking-widest'>Update the product information</h2>
             <form onSubmit={editProduct}>
                 <label className="form-control w-full">
                     <div className="label">

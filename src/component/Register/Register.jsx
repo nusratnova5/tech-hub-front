@@ -55,42 +55,43 @@ const Register = () => {
 
     return (
         <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="hero-content flex-col lg:flex-row">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold text-purple-900">Register now!</h1>
-                    <p className="py-6">Join us and unlock exclusive benefits at our tech accessories shop. Register now to track your orders, save your favorite products, and enjoy a faster, more secure checkout process. Start your tech journey with us today!</p>
+                    <h1 className="text-5xl font-bold text-accent text-center">Welcome <br /> to <br />TechHub</h1>
                 </div>
-                <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="divider lg:divider-horizontal"></div>
+
+                <div className="card shrink-0 w-full max-w-sm">
                     <form onSubmit={handleSignUp} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold">Name</span>
                             </label>
-                            <input type="text" name="displayName" placeholder="Name" className="input input-bordered" required />
+                            <input type="text" name="displayName" placeholder="Name" className="input input-bordered rounded-none" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold">Email</span>
                             </label>
-                            <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                            <input type="email" name="email" placeholder="email" className="input input-bordered rounded-none" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold">Photo URL</span>
                             </label>
-                            <input type="text" name="photoURL" placeholder="Photo URL" className="input input-bordered" required />
+                            <input type="text" name="photoURL" placeholder="Photo URL" className="input input-bordered rounded-none" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                            <input type="password" name='password' placeholder="password" className="input input-bordered rounded-none" required />
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn bg-purple-900 hover:bg-slate-600 text-white">Register</button>
+                            <button className="btn bg-accent hover:bg-slate-600 text-white rounded-none uppercase tracking-widest">Register</button>
                         </div>
                         <div className=' mb-3'>
-                            <p>Already have an account? <Link to={'/login'} className='text-purple-900 font-bold'>Click here </Link>to login.</p>
+                            <p>Already have an account? <Link to={'/login'} className='text-accent font-bold'>Click here </Link>to login.</p>
                         </div>
                     </form>
                 </div>
