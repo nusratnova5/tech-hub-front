@@ -18,8 +18,8 @@ const Banner = () => {
                 <div className='m-6'>
                     <img className='lg:h-[630px] lg:w-[800px] h-[450px] w-full' src={parentimg}></img>
                 </div>
-                <div className='lg:h-[300px] lg:w-[250px]  absolute lg:-inset-x-32 lg:inset-y-32 -bottom-20 inset-x-24'>
-                    <img src={childimg} className='h-[200px] w-full object-cover'></img>
+                <div className=' lg:w-[250px]  absolute lg:-inset-x-32 lg:inset-y-32 -bottom-20 inset-x-24'>
+                    <img src={childimg} className='h-[200px] lg:h-[370px] w-full object-cover'></img>
                 </div>
             </div>
         </div>
